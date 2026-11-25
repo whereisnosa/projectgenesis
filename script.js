@@ -66,7 +66,7 @@ $("#cart-backdrop").addEventListener("click", closeCart);
 $("#checkout-button").addEventListener("click", () => {
   const lines = Object.entries(cart).map(([id,qty])=>`${PRODUCTS[id].name} x ${qty} — ${money(PRODUCTS[id].price*qty)}`).join("\n");
   const total = Object.entries(cart).reduce((sum,[id,qty])=>sum+PRODUCTS[id].price*qty,0);
-  const message = `Hi Yahoo Tailor, I'd like to enquire about this order:\n\n${lines}\n\nSubtotal: ${money(total)}\n\nPlease confirm sizes, availability, delivery fee and payment details.`;
+  const message = `Hi, I'd like to enquire about this order:\n\n${lines}\n\nSubtotal: ${money(total)}\n\nPlease confirm sizes, availability, delivery fee and payment details.`;
   // Replace the placeholder number below with the business WhatsApp number in international format.
   const whatsappNumber = "2349153558534";
   if (whatsappNumber) window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank", "noopener");
